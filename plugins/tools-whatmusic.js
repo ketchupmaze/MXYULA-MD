@@ -1,55 +1,4 @@
-/*var uploadFile = require('../lib/uploadFile')
-var fetch = require('node-fetch')
-
-var handler = async (m, { conn, args, usedPrefix, command }) => {
- try {
-	var q = m.quoted ? m.quoted : m
-		var vid = await q.download?.()
-		var out = await uploadFile(vid)
-	    var tioxd = await fetch(`https://api.zahwazein.xyz/convert/whatmusic?url=${out}&apikey=${global.zein}`)
-var tiodl = await tioxd.json()
-var { 
-title, 
-artist, 
-album, 
-genres } = tiodl.result
-var capt = `*WHAT MUSIC*
-*Nama Music* : ${title}
-
-• *Album :* ${album}
-• *Artists :* ${artist}
-• *Genres :* ${genres}
-`
-await conn.sendMessage(m.chat, {
-                text: capt,
-                contextInfo: {
-                    externalAdReply: {
-                        title: "What Music",
-                        body: "Powered by Assisten Yula 💕",
-                        thumbnailUrl: "https://telegra.ph/file/11e6b85d2c77adcffa6b5.jpg",
-                        sourceUrl: "",
-                        mediaType: 1,
-                        showAdAttribution: true,
-                        renderLargerThumbnail: true
-                    }
-                }
-            })
-   } catch (e) {
-		console.log(e)
-		m.reply(`Error atau kamu telah salah menggunakannya`)
-	}
-}
-handler.help = ['searchmusic']
-handler.tags = ['tools']
-handler.command = /^(what(musik|music)|shazam)$/i
-handler.register = false
-handler.limit = 2
-
-module.exports = handler*/
-
-
-/*
-TUTOR DAPETIN HOST, ACCESS_KEY, DAN ACCESS_SECRET
+/*TUTOR DAPETIN HOST, ACCESS_KEY, DAN ACCESS_SECRET
 1. siapkan email palsu https://temp-mail.org/id
 2. kesini https://console.acrcloud.com/#/register (isi bebas)
 3. Kalian akan di arahkan ke website untuk login
@@ -67,9 +16,9 @@ NOTE: ini berlaku 14 hari, lakukan hal yang berulang kali. disarankan jangan spa
 let acrcloud = require('acrcloud');
 
 let acr = new acrcloud({
-    host: 'identify-ap-southeast-1.acrcloud.com',
-    access_key: 'bf93795c2a02658a1e6f77c869816192',
-    access_secret: 'Yq7FuenKswZa9AISGKiQig0SdBd5HhQf5h4UnPkV'
+    host: 'XXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXX',
+    access_key: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    access_secret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 });
 
 const handler = async (m, { conn, usedPrefix, command }) => {
