@@ -8,7 +8,7 @@ https://github.com/ketchupmaze/MXYULA-MD`
                 text: maximus,
                 contextInfo: {
                     externalAdReply: {
-                        title: "SC YULA 250K 💕",
+                        title: "O W N E R",
                         body: "",
                         thumbnailUrl: "https://telegra.ph/file/154aa4d6cfcc703ab268f.jpg",
                         sourceUrl: "https://wa.me/6281283516246",
