@@ -1,4 +1,4 @@
-/*let fetch = require('node-fetch');
+let fetch = require('node-fetch');
 
 let axios = require('axios');
 
@@ -26,4 +26,4 @@ handler.register = false;
 handler.premium = false;
 handler.limit = 5;
 
-module.exports = handler*/
+module.exports = handler
