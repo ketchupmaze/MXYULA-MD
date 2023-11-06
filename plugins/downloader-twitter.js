@@ -1,37 +1,46 @@
-var fetch = require("node-fetch");
-var handler = async (m, {
-	conn,
-	args,
-	usedPrefix,
-	command
+const fetch = require("node-fetch");
+
+const handler = async (m, {
+    conn,
+    args,
+    usedPrefix,
+    command
 }) => {
-if (!args[0]) throw `Masukan URL!\n\ncontoh:\n${usedPrefix + command} https://twitter.com/ketchupnude/status/1713239814533955723`
-if (!args[0].match(/twitter/gi)) throw `URL Tidak Ditemukan!`
-try {
-        const api = await fetch(`https://api.neoxr.eu/api/twitter?url=${args[0]}&apikey=${global.neoxr}`)
-        conn.sendMessage(m.chat, {
-		react: {
-			text: '⏳',
-			key: m.key,
-		}
-	})
-        const res = await api.json()
-        for (let i of res.data) {
-            conn.sendFile(m.chat, i.url, null, `*Twitter Downloader*`, m)
+    if (!args[0]) throw `Masukkan URL!\n\ncontoh:\n${usedPrefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`;
+    if (!args[0].match(/https?:\/\/(www\.)?(twitter\.com|x\.com)/gi)) throw "URL Tidak Ditemukan!";
+    m.reply(wait);
+    try {
+        const api = await fetch(API('lann', '/api/download/twitter2', { url: `${args[0]}`, apikey: lann }));
+        const res = await api.json();
+        const mediaURLs = res.result.mediaURLs;
+        
+        const capt = `*Username: ${res.result.user_name} ${res.result.user_screen_name}*\n*Title: ${res.result.text}*\n*Replies: ${res.result.replies}*\n*Retweet: ${res.result.retweets}*`;
+        
+        for (const url of mediaURLs) {
+            const response = await fetch(url);
+            const buffer = await response.buffer();  
+            await delay(3000)//3 detik jeda agar tidak spam        
+            conn.sendFile(m.chat, buffer, null, capt, m);           
         }
     } catch (e) {
-        throw `*Server Down!*`
+        throw '*Server Down!*';
     }
 };
-handler.command = /^(twitterdl|twitter)$/i
-handler.help = ['twitter'].map(v => v + ' url');
+
+handler.command = handler.help = ['twitter', 'twitdl', 'twitterdl'];
 handler.tags = ['downloader'];
-handler.register = false;
+handler.limit = true;
 handler.group = false;
-handler.limit = 5;
+handler.premium = false;
 handler.owner = false;
 handler.admin = false;
 handler.botAdmin = false;
 handler.fail = null;
 handler.private = false;
+
 module.exports = handler;
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+	}
+				  
