@@ -28,6 +28,6 @@ await conn.sendFile(m.chat, link, 'tiovid.mp4', `┌─❖\n│「 *T I K T O K 
 handler.help = ['tiktok'].map(v => v + ' url')
 handler.tags = ['downloader']
 handler.command = /^(tiktok|tt|ttdl|tiktokdl)$/i
-handler.limit = 5
+handler.limit = true
 handler.register = false
 module.exports = handler
