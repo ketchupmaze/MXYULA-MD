@@ -2,16 +2,15 @@ let fs = require('fs')
 let chalk = require('chalk')
 
 owner = [
-  ['6281283516246', 'XNXX', true]
+  ['6281283516246', 'Maximus', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 mods = ['6281283516246'] // Want some help?
 prems = ['6281283516246'] // Premium user has unlimited limit
-global.lolkey = 'Apikeylu'
-global.neoxr = 'Apikeylu'
-global.zein = 'Apikeylu'
-global.btc = 'Apikeylu'
-global.rose = 'Apikeylu'
+global.lolkey = 'Apikeylu' // Buy keys at https://api.lolhuman.xyz
+global.neoxr = 'Apikeylu' // Buy keys at https://api.neoxr.eu
+global.btc = 'Apikeylu' // Buy keys at https://api.botchax.live
+global.rose = 'Apikeylu' // Buy keys at https://api.itsrose.life
 global.APIs = { // API Prefix
   // name: 'https://website'
   neoxr: 'https://api.neoxr.eu.org/',
@@ -23,9 +22,9 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.neoxr.eu.org/': 'Apikeylu',
+  'https://api.neoxr.eu': 'Apikeylu',
   'https://api.lolhuman.xyz': 'Apikeylu',
-  'https://api.botcahx.biz.id': 'Apikeylu',
+  'https://api.botcahx.live': 'Apikeylu',
   'https://api.itsrose.life': 'Rk-Apikeylu',
 }
 
