@@ -8,24 +8,23 @@ owner = [
 mods = ['6281283516246'] // Want some help?
 prems = ['6281283516246'] // Premium user has unlimited limit
 global.lolkey = 'Apikeylu' // Buy keys at https://api.lolhuman.xyz
-global.neoxr = 'Apikeylu' // Buy keys at https://api.neoxr.eu
+global.lann = 'Apikeylu' // Buy keys at https://api.betabotz.org
 global.btc = 'Apikeylu' // Buy keys at https://api.botchax.live
 global.rose = 'Apikeylu' // Buy keys at https://api.itsrose.life
 global.APIs = { // API Prefix
   // name: 'https://website'
-  neoxr: 'https://api.neoxr.eu.org/',
   lol: 'https://api.lolhuman.xyz',
-  gimez: 'https://masgimenz.my.id/',
   rose: 'https://api.itsrose.life',
   melcanz: 'https://melcanz.com',
   TioXD: 'https://api.botcahx.biz.id',
+  lann: 'https://api.betabotz.org'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.neoxr.eu': 'Apikeylu',
   'https://api.lolhuman.xyz': 'Apikeylu',
   'https://api.botcahx.live': 'Apikeylu',
   'https://api.itsrose.life': 'Rk-Apikeylu',
+  'https://api.betabotz.org': 'apikeylu
 }
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
