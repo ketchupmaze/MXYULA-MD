@@ -3,15 +3,19 @@
 **Pembaruan :**
 - Telah menggunakan multi auth sessions 
 - Fix QR code di terminal & pairing code
-- ```node . --pairing```
+- Use Pairing Code: ```node . --pairing```
 - Fix console logs pesan masuk 
 - Fix Downloader.
 
- ## Website API Recommended
+ ## Wajib menggunakan Web Api di bawah
   
 - BetaBotz API [`RestApi`](https://api.betabotz.org).
   
 - Botcahx API [`RestApi`](https://api.botcahx.live).
+
+- LolHuman API [`RestApi`](https://api.lolhuman.xyz).
+
+- Itsrose API [`RestApi`](https://docs.itsrose.life).
 
 ## GRUP & NOMOR saya
 - Owner Bot [`Chat Owner`](https://wa.me/6288225750488)
