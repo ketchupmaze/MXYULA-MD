@@ -11,7 +11,7 @@ let handler = async (m, { conn, text }) => {
     if (!/webp/.test(mime)) throw 'Reply sticker!'
     let img = await m.quoted.download()
     if (!img) throw 'Reply a sticker!'
-    stiker = await addExif(img, packname || '', author || '')
+    stiker = await addExif(img, packname || '', author || 'Maximus Store')
   } catch (e) {
     console.error(e)
     if (Buffer.isBuffer(e)) stiker = e
@@ -24,6 +24,6 @@ handler.help = ['wm <packname>|<author>']
 handler.tags = ['sticker']
 handler.command = /^wm$/i
 handler.register = false
-handler.limit = 2
+handler.limit = true
 
 module.exports = handler
