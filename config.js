@@ -21,10 +21,10 @@ global.APIs = { // API Prefix
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.lolhuman.xyz': 'Apikeylu',
   'https://api.botcahx.live': 'Apikeylu',
-  'https://api.itsrose.life': 'Rk-Apikeylu',
-  'https://api.betabotz.org': 'apikeylu
+  'https://api.betabotz.org': 'Apikeylu',
+  'https://api.lolhuman.xyz': 'Apikeylu',
+  'https://api.itsrose.life': 'Rk-Apikeylu'
 }
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
