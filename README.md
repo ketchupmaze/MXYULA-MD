@@ -7,7 +7,7 @@
 - Fix console logs pesan masuk 
 - Fix Downloader.
 
- ## Wajib menggunakan Web Api di bawah
+ ## WAJIB MENGGUNAKAN WEB API DI BAWAH
   
 - BetaBotz API [`RestApi`](https://api.betabotz.org).
   
