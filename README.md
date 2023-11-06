@@ -32,9 +32,9 @@
 * Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/ERLANRAHMAT/BETABOTZ-MD2
-cd BETABOTZ-MD2
-npm i
+git clone https://github.com/ketchupmaze/MXYULA-MD
+cd MXYULA-MD
+npm install
 npm start
 ```
 
