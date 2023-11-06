@@ -1,35 +1,20 @@
 let fetch = require('node-fetch')
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-	try {
-   let maximus = `BOT ini menggunakan Script
-https://github.com/ketchupmaze/MXYULA-MD`
-		await conn.sendMessage(m.chat, {
-                text: maximus,
-                contextInfo: {
-                    externalAdReply: {
-                        title: "O W N E R",
-                        body: "",
-                        thumbnailUrl: "https://telegra.ph/file/154aa4d6cfcc703ab268f.jpg",
-                        sourceUrl: "https://wa.me/6281283516246",
-                        mediaType: 1,
-                        showAdAttribution: true,
-                        renderLargerThumbnail: true
-                    }
-                }
-            }, {quoted: m})
-	} catch (e) {
-		console.log(e)
-		throw `Fitur Error.`
-	}
+   conn.reply(m.chat, `『 A S S I S T E N  Y U L A 』
+
+*• BOTS USE SCRIPTS*
+https://github.com/ketchupmaze/MXYULA-MD
+
+`, m)
 }
 
-handler.help = ['sewa', 'sc']
+handler.help = ['sc']
 handler.tags = ['info']
-handler.command = /^(sewa|sc|script)$/i
+handler.command = /^(sc|script)$/i
 
 handler.register = false
 handler.premium = false
-handler.limit = true
+handler.limit = false
 
 module.exports = handler
