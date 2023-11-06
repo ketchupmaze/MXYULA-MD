@@ -1,43 +1,60 @@
-let fetch = require('node-fetch')
+const fetch = require("node-fetch");
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-	if (!text) throw `*Usage : ${usedPrefix + command} url*\n\nExample: ${usedPrefix + command} https://open.spotify.com/track/0ZEYRVISCaqz5yamWZWzaA`
-    if (!(text.includes('http://') || text.includes('https://'))) throw `url invalid, please input a valid url. Try with add http:// or https://`
-      try {
-	let res = await fetch(`https://api.neoxr.eu/api/spotify?url=${text}&apikey=${global.neoxr}`)
-	conn.sendMessage(m.chat, {
-		react: {
-			text: '⏳',
-			key: m.key,
-		}
-	})
-    if (!res.ok) throw `Invalid Spotify url / terjadi kesalahan.`
-    let json = await res.json()
-    let { thumbnail, title, duration, size, url } = json.data
-    let txt_nih = `*DOCUMENT TYPE*
-*Title :* ${title}
-*Durasi :* ${duration}
-*Size :* ${size}`
-    await conn.sendFile(m.chat, url, 'kasar.mp3', null, m, true, {
-type: 'audioMessage', 
-ptt: true 
-})
-  await conn.sendMessage(m.chat, { 
-    document: { url: url }, 
-    mimetype: 'audio/mpeg', 
-    fileName: `${title}.mp3`,
-    caption: txt_nih
-  }, {quoted: m})
-      } catch (e) {
-		console.log(e)
-		m.reply(`*Sistem YuLa ERROR*`)
-	}
-}
-
-handler.help = ['spotify'].map(v => v + ' url')
-handler.tags = ['downloader']
-handler.command = /^(spotify(a(audio)?|mp3)?)$/i
-
-handler.limit = 5;
-
-module.exports = handler
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+  if (!args[0]) throw `Masukkan URL!\n\nContoh:\n${usedPrefix + command} https://open.spotify.com/track/3zakx7RAwdkUQlOoQ7SJRt`;
+  if (!args[0].match(/spotify/gi)) throw `URL Tidak Ditemukan!`;
+  m.reply("Tunggu sebentar...");
+		const urll = args[0];
+		try {  
+		const res = await fetch(`https://api.botcahx.live/api/download/spotify?url=${args[0]}&apikey=${btc}`)		
+let jsons = await res.json()
+const { 
+thumbnail, 
+title,
+name,
+duration,
+url
+} = jsons.result.data
+const { 
+id,
+type
+} = jsons.result.data.artist
+    let captionvid = ` ∘ Title: ${title}\n∘ Id: ${id}\n∘ Duration: ${duration}\n∘ Type: ${type}`
+    let pesan = await conn.sendMessage(m.chat, {
+    text: captionvid,
+    contextInfo: {
+    externalAdReply: {
+    title: "",
+    body: "Powered by",
+    thumbnailUrl: thumbnail ,
+    sourceUrl: thumbnail,
+    mediaType: 1,
+    showAdAttribution: true,
+    renderLargerThumbnail: true
+    }}})
+    await conn.sendMessage(m.chat, { audio: { url: url }, mimetype: 'audio/mpeg', contextInfo: {
+    externalAdReply: {
+    title: title,
+    body: "",
+    thumbnailUrl: thumbnail,
+    sourceUrl: url,
+    mediaType: 1,
+    showAdAttribution: true,
+    renderLargerThumbnail: true
+    }}} , { quoted: m })
+    } catch (e) {
+    throw `*Server down!*`
+   }
+};
+handler.help = ['spotify']
+handler.command = /^(spotify)$/i
+handler.tags = ['downloader'];
+handler.limit = true;
+handler.group = false;
+handler.premium = false;
+handler.owner = false;
+handler.admin = false;
+handler.botAdmin = false;
+handler.fail = null;
+handler.private = false;
+module.exports = handler;
