@@ -4,7 +4,7 @@
 - Telah menggunakan multi auth sessions 
 - Fix QR code di terminal & pairing code
 - Use Pairing Code: ```node . --pairing 62xxxxxxxxxx```
-- Use Qr Code: ```node .```
+- Use QR Code: ```node .```
 
  ## WAJIB MENGGUNAKAN WEB API DI BAWAH
   
