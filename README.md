@@ -3,9 +3,8 @@
 **Pembaruan :**
 - Telah menggunakan multi auth sessions 
 - Fix QR code di terminal & pairing code
-- Use Pairing Code: ```node . --pairing```
-- Fix console logs pesan masuk 
-- Fix Downloader.
+- Use Pairing Code: ```node . --pairing 62xxxxxxxxxx```
+- Use Qr Code: ```node .```
 
  ## WAJIB MENGGUNAKAN WEB API DI BAWAH
   
