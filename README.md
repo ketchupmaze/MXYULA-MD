@@ -38,10 +38,7 @@ npm start
 ```
 
 ##### Special Thanks To
-<!--[![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo)
-[![BochilGaming](https://github.com/BochilGaming.png?size=100)](https://github.com/BochilGaming)
-[![adiwajshing/Baileys](https://github.com/adiwajshing.png?size=100)](https://github.com/adiwajshing)-->
-<a href="https://github.com/BochilGaming"><img src="https://github.com/BochilGaming.png?size=100" width="100" height="100"></a> | [![NURUTOMO](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) 
+<a href="https://github.com/BOTCAHX"><img src="https://github.com/BOTCAHX.png?size=100" width="100" height="100"></a> | [![Erlan](https://github.com/ERLANRAHMAT.png?size=100)](https://github.com/ERLANRAHMAT) | [![XMaze](https://github.com/ketchupmaze.png?size=100)](https://github.com/ketchupmaze)
 ---|---
-[Bochilgaming](https://github.com/BochilGaming)  | [Nurutomo](https://github.com/Nurutomo)
-sepuh | sepuh |
+[Xmaze](https://github.com/ketchupmaze) | [Tio](https://github.com/BOTCAHX)  | [Erlan](https://github.com/ERLANRAHMAT)
+Recode | Contributor | Contributor | 
