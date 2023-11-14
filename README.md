@@ -16,8 +16,8 @@
 
 - Itsrose API [`RestApi`](https://docs.itsrose.life)
 
-## GRUP & NOMOR saya
-- Owner Bot [`Chat Owner`](https://wa.me/6281283516246)
+## GRUP & NOMOR SAYA
+- Owner Bot [`Chat Saya`](https://wa.me/6281283516246)
 
 - Group Bot [`Join`](https://chat.whatsapp.com/FJRtTzRKxP8A2wT6fcCW3s)
 
