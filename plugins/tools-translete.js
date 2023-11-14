@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const { translate } = require('@vitalets/google-translate-api');
 const defaultLang = 'id'
 let handler = async (m, { args, usedPrefix, command }) => {
     if (!args[0] && !m.quoted) {
@@ -11,13 +11,11 @@ let handler = async (m, { args, usedPrefix, command }) => {
         text = args.join(' ')
     }
     if (!text && m.quoted && m.quoted.text) text = m.quoted.text
-    let result = await fetch(`https://api.lolhuman.xyz/api/translate/auto/${lang}?apikey=${global.lolkey}&text=${text}`)
-    let res = await result.json()
-    let { translated } = res.result
-    m.reply(translated)
+    let result = await translate(text, { to: lang, autoCorrect: true }).catch(_ => null)     
+    if (!result) throw 'Terjemahan gagal.'
+    m.reply(result.text.toString())
 }
 handler.help = ['tr <leng> <text>']
 handler.tags = ['tools']
-handler.command = ['translate', 'tl', 'trad', 'tr']
-handler.limit = true
+handler.command = ['translate', 'tl', 'trid', 'tr']
 module.exports = handler
