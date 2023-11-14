@@ -8,13 +8,13 @@
 
  ## WAJIB MENGGUNAKAN WEB API DI BAWAH
   
-- BetaBotz API [`RestApi`](https://api.betabotz.org).
+- BetaBotz API [`RestApi`](https://api.betabotz.org)
   
-- Botcahx API [`RestApi`](https://api.botcahx.live).
+- Botcahx API [`RestApi`](https://api.botcahx.live)
 
-- LolHuman API [`RestApi`](https://api.lolhuman.xyz).
+- LolHuman API [`RestApi`](https://api.lolhuman.xyz)
 
-- Itsrose API [`RestApi`](https://docs.itsrose.life).
+- Itsrose API [`RestApi`](https://docs.itsrose.life)
 
 ## GRUP & NOMOR saya
 - Owner Bot [`Chat Owner`](https://wa.me/6288225750488)
