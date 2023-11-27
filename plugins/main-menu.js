@@ -6,48 +6,56 @@ let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 let levelling = require('../lib/levelling')
 let tags = {
-  'admins': '𝗔𝗗𝗠𝗜𝗡',
+  'admins': '𝗔𝗗𝗠𝗜𝗡 𝗠𝗘𝗡𝗨',
+  'group': '𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨',
+  'store': '𝗦𝗧𝗢𝗥𝗘 𝗠𝗘𝗡𝗨',
+  'genshin': '𝗚𝗘𝗡𝗦𝗛𝗜𝗡 𝗚𝗨𝗜𝗗𝗘',
   'domain': '𝗚𝗘𝗡𝗦𝗛𝗜𝗡 𝗗𝗢𝗠𝗔𝗜𝗡',
+  'oculus': '𝗚𝗘𝗡𝗦𝗛𝗜𝗡 𝗠𝗔𝗣𝗦',
+  'team': '𝗚𝗘𝗡𝗦𝗛𝗜𝗡 𝗧𝗘𝗔𝗠𝗦',
   'gi': '𝗚𝗘𝗡𝗦𝗛𝗜𝗡 𝗦𝗘𝗔𝗥𝗖𝗛',
-  'ai': '𝗔𝗥𝗧𝗜𝗙𝗜𝗖𝗜𝗔𝗟 𝗜𝗡𝗧𝗘𝗟𝗟𝗜𝗚𝗘𝗡𝗖𝗘',
-  'downloader': '𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥',
-  'anime': '𝗔𝗡𝗜𝗠𝗘',
-  'nsfw': '𝗡𝗦𝗙𝗪', 
-  'sticker': '𝗦𝗧𝗜𝗖𝗞𝗘𝗥',
-  'fun': '𝗙𝗨𝗡',
-  'jadian': '𝗗𝗔𝗧𝗜𝗡𝗚',
-  'game': '𝗚𝗔𝗠𝗘',
-  'group': '𝗚𝗥𝗢𝗨𝗣',
-  'internet': '𝗜𝗡𝗧𝗘𝗥𝗡𝗘𝗧',
-  'islami' : '𝗜𝗦𝗟𝗔𝗠𝗜𝗖',
-  'tools': '𝗧𝗢𝗢𝗟𝗦',
-  'audio': '𝗔𝗨𝗗𝗜𝗢',
-  'rpg': '𝗥𝗣𝗚 𝗚𝗔𝗠𝗘',
+  'hsr': '𝗛𝗢𝗡𝗞𝗔𝗜 𝗦𝗧𝗔𝗥 𝗥𝗔𝗜𝗟',
+  'ai': '𝗔𝗜 𝗠𝗘𝗡𝗨',
+  'downloader': '𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 𝗠𝗘𝗡𝗨',
+  'anime': '𝗔𝗡𝗜𝗠𝗘 𝗠𝗘𝗡𝗨',
+  'nsfw': '𝗡𝗦𝗙𝗪 𝗠𝗘𝗡𝗨', 
+  'sticker': '𝗦𝗧𝗜𝗖𝗞𝗘𝗥 𝗠𝗘𝗡𝗨',
+  'fun': '𝗙𝗨𝗡 𝗠𝗘𝗡𝗨',
+  'jadian': '𝗗𝗔𝗧𝗜𝗡𝗚 𝗠𝗘𝗡𝗨',
+  'game': '𝗚𝗔𝗠𝗘 𝗠𝗘𝗡𝗨',
+  'internet': '𝗜𝗡𝗧𝗘𝗥𝗡𝗘𝗧 𝗠𝗘𝗡𝗨',
+  'islami' : '𝗜𝗦𝗟𝗔𝗠𝗜𝗖 𝗠𝗘𝗡𝗨',
+  'tools': '𝗧𝗢𝗢𝗟𝗦 𝗠𝗘𝗡𝗨',
+  'audio': '𝗔𝗨𝗗𝗜𝗢 𝗠𝗘𝗡𝗨',
+  'rpg': '𝗥𝗣𝗚 𝗠𝗘𝗡𝗨',
   'main': '𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨',
-  'owner': '𝗢𝗪𝗡𝗘𝗥',
-  'database': '𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘',
+  'owner': '𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨',
+  'database': '𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘 𝗠𝗘𝗡𝗨',
   'info': '𝗜𝗡𝗙𝗢 𝗕𝗢𝗧'
 }
 const defaultMenu = {
-  before: `Hi *%name*,
-I'm *YuLa*, I'm the Assistant for this group. *YuLa* can help you search for data or retrieve data only through the WhatsApp application.
+  before: `Hi %name.\nMy name is YuLa. I am the Assistant for this Group. I'm here to help you with tasks like searching for information online, retrieving data, etc. By utilizing innovative features, I will help you to move more quickly and productively in completing your work.
 
-*「 I N F O   F E A T U R E 」*
- •  *Premium features :* Ⓟ
- •  *Limits features :* Ⓛ
+*「 I N F O  Y U L A 」*
+ •  *Your Premium :* %prem
+ •  *Your Limits :* %limit
+ •  *Versions :* %version
+ •  *Today's request :* %totalreg 
+ •  *Database :* mongoDB
 
-If you encounter an ERROR or you want to buy PREMIUM access, you can chat with the owner. by writing *.owner* and YuLa will give you the owner number.
 %readmore
+*════════════════════════*
+
 `.trimStart(),
-  header: '*—「 %category  」*\n',
-  body: '► %cmd %isPremium %islimit',
-  footer: '\n',
-  after: `*Assisten YuLa  ©  2 0 2 3*`,
+  header: '*┌ ⋄「 %category  」*',
+  body: '*│ ⋄* %cmd',
+  footer: '*└* ',
+  after: '',
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
-    let { exp, limit, level, role } = global.db.data.users[m.sender]
+    let { exp, limit, level, role, premium } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = `@${m.sender.split`@`[0]}`
     let d = new Date(new Date + 3600000)
@@ -116,8 +124,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '*(Ⓛ)*' : '')
-                .replace(/%isPremium/g, menu.premium ? '*(Ⓟ)*' : '')
+                .replace(/%islimit/g, menu.limit ? '*Ⓛ*' : '')
+                .replace(/%isPremium/g, menu.premium ? '*Ⓟ*' : '')
                 .trim()
             }).join('\n')
           }),
@@ -138,13 +146,13 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       exp: exp - min,
       maxexp: xp,
       totalexp: exp,
+      prem: premium ? 'Yes' : 'No',
       xp4levelup: max - exp,
       github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
       level, limit, name, weton, week, date, dateIslamic, wib, wit, wita, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-/*conn.sendMessage(m.chat, { video: { url: "https://telegra.ph/file/4e36d9178c7b893f5c4bd.mp4" }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text, contextInfo: { externalAdReply: { showAdAttribution: false, title: 'Assisten YuLa 💕', body: 'Jangan Lupa Sewa', thumbnailUrl: 'https://telegra.ph/file/788304dc51334f8d5d8b8.jpg', mediaType: 1, sourceUrl: 'https://chat.whatsapp.com/LZCnnSQFPkF3C6zrDcH5n8', renderLargerThumbnail: false }}}, { quoted: m })*/
 await conn.sendMessage(m.chat, {
 text: text,
 contextInfo: {
@@ -152,7 +160,7 @@ mentionedJid: [m.sender],
 externalAdReply: {
 title: 'Assisten YuLa 💕',
 body: 'Powered By Maximus',
-thumbnailUrl: "https://telegra.ph/file/7a20200e053f8906d375f.jpg",
+thumbnailUrl: "https://telegra.ph/file/754c704194ef0d84c6419.jpg",
 sourceUrl: "https://chat.whatsapp.com/LZCnnSQFPkF3C6zrDcH5n8",
 mediaType: 1,
 renderLargerThumbnail: true
@@ -202,17 +210,15 @@ function ucapan() {
         const hour_now = moment.tz('Asia/Jakarta').format('HH')
         var ucapanWaktu = 'Pagi'
         if (hour_now >= '03' && hour_now <= '10') {
-          ucapanWaktu = 'Selamat Pagi 🌄'
+          ucapanWaktu = 'Selamat Pagi'
         } else if (hour_now >= '10' && hour_now <= '15') {
-          ucapanWaktu = 'Selamat Siang 🏙️'
-        } else if (hour_now >= '15' && hour_now <= '17') {
-          ucapanWaktu = 'Selamat Sore 🌇'
-        } else if (hour_now >= '17' && hour_now <= '18') {
-          ucapanWaktu = 'Selamat Petang 🌌'
+          ucapanWaktu = 'Selamat Siang'
+        } else if (hour_now >= '15' && hour_now <= '18') {
+          ucapanWaktu = 'Selamat Sore'
         } else if (hour_now >= '18' && hour_now <= '23') {
-          ucapanWaktu = 'Selamat Malam 🌃'
+          ucapanWaktu = 'Selamat Malam'
         } else {
-          ucapanWaktu = 'Selamat Malam 🌃'
+          ucapanWaktu = 'Selamat Malam'
         }	
         return ucapanWaktu
 }
