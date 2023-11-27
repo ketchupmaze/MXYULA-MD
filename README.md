@@ -5,6 +5,7 @@
 - Fix QR code di terminal & pairing code
 - Use Pairing Code: ```node . --pairing 62xxxxxxxxxx```
 - Use QR Code: ```node .```
+- Penambahan Fitur Store ```addlist, dellist, updatelist, list```
 
  ## WAJIB MENGGUNAKAN WEB API DI BAWAH
   
