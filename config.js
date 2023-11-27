@@ -1,30 +1,38 @@
 let fs = require('fs') 
 let chalk = require('chalk')
 
+  // OWNER
 owner = [
-  ['6281283516246', 'Maximus', true]
-  // [number, dia creator/owner?, dia developer?]
-] // Put your number here
-mods = ['6281283516246'] // Want some help?
-prems = ['6281283516246'] // Premium user has unlimited limit
-global.lolkey = 'Apikeylu' // Buy keys at https://api.lolhuman.xyz
-global.lann = 'Apikeylu' // Buy keys at https://api.betabotz.org
-global.btc = 'Apikeylu' // Buy keys at https://api.botchax.live
-global.rose = 'Apikeylu' // Buy keys at https://api.itsrose.life
-global.APIs = { // API Prefix
+['6281283516246', 'Maximus Store', true]
+]
+
+  // MODERATOR
+mods = ['6288225750488', '6281288180416'] 
+
+  // PREMIUM USERS
+prems = ['6288225750488', '6281288180416']
+
+  // APIKEYS
+global.lolkey = 'APIKEYLU'
+global.neoxr = 'APIKEYLU'
+global.btc = 'APIKEYLU'
+global.rose = 'Rk-APIKEYLU'
+
   // name: 'https://website'
+global.APIs = {
+  neoxr: 'https://api.neoxr.eu.org/',
   lol: 'https://api.lolhuman.xyz',
   rose: 'https://api.itsrose.life',
-  melcanz: 'https://melcanz.com',
   TioXD: 'https://api.botcahx.biz.id',
-  lann: 'https://api.betabotz.org'
-}
-global.APIKeys = { // APIKey Here
-  // 'https://website': 'apikey'
-  'https://api.botcahx.live': 'Apikeylu',
-  'https://api.betabotz.org': 'Apikeylu',
-  'https://api.lolhuman.xyz': 'Apikeylu',
-  'https://api.itsrose.life': 'Rk-Apikeylu'
+  lann: 'https://api.betabotz.org',
+} 
+
+  // 'https://website': 'APIKEY'
+global.APIKeys = {
+  'https://api.neoxr.eu.org/': 'APIKEYLU',
+  'https://api.lolhuman.xyz': 'APIKEYLU',
+  'https://api.botcahx.live': 'APIKEYLU',
+  'https://api.itsrose.life': 'Rk-APIKEYLU',
 }
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
@@ -47,13 +55,22 @@ fs.watchFile(file_exif, () => {
   require('./lib/exif.json')
 })
 
-// Sticker WM
-packname = sticker_name
-author = sticker_author
-wm = '© ᴀssɪsᴛᴇɴ ʏᴜʟᴀ 💕'
+// ALL GLOBAL
+global.nameown = 'Maximus Store'
+global.waown = 'wa.me/6281283516246'
+global.mail = 'maximusstoreindonesia@gmail.com'
+global.fb = 'https://facebook.com/maximusstoreindonesia'
+global.ig = 'https://instagram.com/maximusstore.id'
+global.gcbot = 'https://chat.whatsapp.com/FJRtTzRKxP8A2wT6fcCW3s'
+global.wait = '_*YuLa sedang memproses...*_'
+global.eror = '*Sistem YuLa Error*'
+global.maxwarn = '2'
+global.packname = sticker_name
+global.author = sticker_author
+global.wm = '© ᴀssɪsᴛᴇɴ ʏᴜʟᴀ 💕'
+global.pricelist = '*LIMIT* kamu habis. kamu bisa order akses premium\n\n*PREMIUM USER PRICE LIST*\n\n*3 Day premium*\n- OrderID: 3\n- Price: Rp. 5.000 IDR\n\n*7 Day premium*\n- OrderID: 7\n- Price: Rp. 10.000 IDR\n\n*30 Day premium*\n- OrderID: 30\n- Price: Rp. 15.000 IDR\n\n*60 Day premium*\n- OrderID: 60\n- Price: Rp. 30.000 IDR\n\n*90 Day premium*\n- OrderID: 90\n- Price: Rp. 40.000 IDR\n\n*365 Day premium*\n- OrderID: 365\n- Price: Rp. 115.000 IDR\n\nSilahkan ikuti contoh di bawah.\n*.order* <OrderID>\nExample: *.order* 30'
 
 Intervalmsg = 1800 //detik
-
 multiplier = 1000 // The higher, The harder levelup
 
 rpg = {
