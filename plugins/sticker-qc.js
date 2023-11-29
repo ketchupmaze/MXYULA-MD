@@ -37,7 +37,7 @@ let text
          "replyMessage": {}
       }]
    }
-   const json = await axios.post('https://bot.lyo.su/quote/generate', obj, {
+   const json = await axios.post('https://quote.btch.bz/generate', obj, {
       headers: {
          'Content-Type': 'application/json'
       }
