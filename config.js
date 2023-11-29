@@ -1,16 +1,16 @@
 let fs = require('fs') 
 let chalk = require('chalk')
 
-  // OWNER
+  // OWNER CONTOH EDIT : ['NOMORMU AWALI DENGAN 62 TANPA 0', 'NAMAMU', true]
 owner = [
 ['6281283516246', 'Maximus Store', true]
-]
+] 
 
   // MODERATOR
-mods = ['6288225750488', '6281288180416'] 
+mods = ['6288225750488'] 
 
   // PREMIUM USERS
-prems = ['6288225750488', '6281288180416']
+prems = ['6281283516246']
 
   // APIKEYS
 global.lolkey = 'APIKEYLU'
