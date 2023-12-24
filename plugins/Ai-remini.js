@@ -14,7 +14,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         const api = await remini(out);
         conn.sendFile(m.chat, api.image_data, null, wm, m);
       } else if (command === 'hd2' || command === 'remini2') {
-        const api = await fetch(`https://api.botcahx.live/api/tools/remini?url=${out}&apikey=${global.btc}`);
+        const api = await fetch(`https://api.botcahx.eu.org/api/tools/remini?url=${out}&apikey=${global.btc}`);
         const image = await api.json();
         const { url } = image;
         conn.sendFile(m.chat, url, null, wm, m);
@@ -23,7 +23,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         const image = await api.json();
         conn.sendFile(m.chat, Buffer.from(image.result.base64Image, 'base64'), 'gambar.jpg', global.wm, m)
       } else if (command === 'hd4' || command === 'remini4') {
-        const api = await fetch(`https://api.botcahx.live/api/tools/remini-v3?url=${out}&resolusi=4&apikey=${global.btc}`);
+        const api = await fetch(`https://api.botcahx.eu.org/api/tools/remini-v3?url=${out}&resolusi=4&apikey=${global.btc}`);
         const image = await api.json();
         const url = image.url.url;
         conn.sendFile(m.chat, url, null, wm, m);
