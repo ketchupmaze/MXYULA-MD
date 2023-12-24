@@ -11,7 +11,7 @@
   
 - BetaBotz API [`RestApi`](https://api.betabotz.org)
   
-- Botcahx API [`RestApi`](https://api.botcahx.live)
+- Botcahx API [`RestApi`](https://api.botcahx.eu.org)
 
 - LolHuman API [`RestApi`](https://api.lolhuman.xyz)
 
