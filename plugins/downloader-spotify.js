@@ -6,7 +6,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   m.reply("Tunggu sebentar...");
 		const urll = args[0];
 		try {  
-		const res = await fetch(`https://api.botcahx.live/api/download/spotify?url=${args[0]}&apikey=${btc}`)		
+		const res = await fetch(`https://api.botcahx.eu.org/api/download/spotify?url=${args[0]}&apikey=${btc}`)		
 let jsons = await res.json()
 const { 
 thumbnail, 
