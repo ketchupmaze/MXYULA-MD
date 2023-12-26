@@ -718,8 +718,6 @@ module.exports = {
                         let user = db.data.users[m.sender]
                         if (name != 'unbanchat.js' && chat && chat.isBanned) return // Except this
                         if (name != 'unbanuser.js' && user && user.banned) return
-                        let ban = db.data.banned[m.sender]
-                        if (typeof ban !== 'undefined' && ban.status) return
                     }
                     
                     if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { // Both Owner
