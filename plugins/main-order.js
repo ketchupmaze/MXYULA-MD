@@ -2,6 +2,11 @@ const { MessageType } = require('@adiwajshing/baileys')
 
 let handler = async(m, { conn, text, usedPrefix, command}) => {
     if (!text) return conn.reply(m.chat, `*— YULA JOIN GROUP*\n\n*7 Day join the group*\n- OrderID: G7\n- Price: Rp. 7.000 IDR\n\n*30 Day join the group*\n- OrderID: G30\n- Price: Rp. 15.000 IDR\n\n*365 Day join the group*\n- OrderID: G365\n- Price: Rp. 110.000 IDR\n\n\n*— PREMIUM USER*\n\n*3 Day premium*\n- OrderID: 3\n- Price: Rp. 5.000 IDR\n\n*7 Day premium*\n- OrderID: 7\n- Price: Rp. 10.000 IDR\n\n*30 Day premium*\n- OrderID: 30\n- Price: Rp. 15.000 IDR\n\n*60 Day premium*\n- OrderID: 60\n- Price: Rp. 30.000 IDR\n\n*90 Day premium*\n- OrderID: 90\n- Price: Rp. 40.000 IDR\n\n*365 Day premium*\n- OrderID: 365\n- Price: Rp. 115.000 IDR\n\n${usedPrefix + command} <OrderID>\nexample: ${usedPrefix + command} 30`, m)
+var own2 = ``
+  for(let i of global.owner){
+  own2 += i[0]
+  }
+
     let orderID;
 
   switch(text) {
@@ -79,7 +84,7 @@ let handler = async(m, { conn, text, usedPrefix, command}) => {
   };
     var nomor = m.sender
     const teks1 = `*[ Y U L A  O R D E R ]*\nNomor : wa.me/${nomor.split("@s.whatsapp.net")[0]}\nORDER : ${orderID}`
-    conn.reply('6281283516246@s.whatsapp.net', teks1, m)
+    conn.reply(own2 + '@s.whatsapp.net', teks1, m)
     conn.reply(m.chat, '✔️ Orderan mu sudah di kirim ke OWNER, Harap tunggu pesan dari OWNER', m)
 }
 handler.help = ['order'];
