@@ -6,6 +6,9 @@ owner = [
 ['6281283516246', 'Maximus Store', true]
 ] 
 
+  // AUTOBACKUP DATABASE
+backup = '6281283516246'
+
   // MODERATOR
 mods = ['6288225750488'] 
 
