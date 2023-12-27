@@ -16,7 +16,7 @@ module.exports = (conn) => {
       }
     }
     let sesi = await fs.readFileSync('./database.json')
-    await conn.sendMessage('6281283516246@s.whatsapp.net', { document: sesi, mimetype: 'application/json', fileName: 'database.json' }, { quoted: q })
+    await conn.sendMessage(global.backup + '@s.whatsapp.net', { document: sesi, mimetype: 'application/json', fileName: 'database.json' }, { quoted: q })
   }, 50 * 40 * 1000)
 }
 
