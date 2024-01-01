@@ -34,6 +34,7 @@ const handler = async (m, { conn, args, text, usedPrefix, command }) => {
 » seele
 » serval
 » silverwolf
+» sparkle
 » sushang
 » tingyun
 » topaz
@@ -134,6 +135,9 @@ const handler = async (m, { conn, args, text, usedPrefix, command }) => {
        case 'silverwolf':
       Maximus = 'Silver%20Wolf';
       break;
+       case 'sparkle';
+      Maximus = 'Sparkle';
+      break;
        case 'sushang':
       Maximus = 'Sushang';
       break;
@@ -186,6 +190,7 @@ const handler = async (m, { conn, args, text, usedPrefix, command }) => {
 » seele
 » serval
 » silverwolf
+» sparkle
 » sushang
 » tingyun
 » topaz
