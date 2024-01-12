@@ -1,45 +1,112 @@
-const fetch = require('node-fetch');
-const uploadImage = require('../lib/uploadImage')
-const { remini } = require('betabotz-tools')
+var FormData = require("form-data");
+var Jimp = require("jimp");
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-  try {
-    const q = m.quoted ? m.quoted : m;
-    const mime = (q.msg || q).mimetype || q.mediaType || '';
-    if (/^image/.test(mime) && !/webp/.test(mime)) {
-      const img = await q.download();
-      const out = await uploadImage(img);
-      m.reply('Memproses image . . . .  ');
-      if (command === 'hd' || command === 'remini') {
-        const api = await remini(out);
-        conn.sendFile(m.chat, api.image_data, null, wm, m);
-      } else if (command === 'hd2' || command === 'remini2') {
-        const api = await fetch(`https://api.botcahx.eu.org/api/tools/remini?url=${out}&apikey=${global.btc}`);
-        const image = await api.json();
-        const { url } = image;
-        conn.sendFile(m.chat, url, null, wm, m);
-      } else if (command === 'hd3' || command === 'remini3') {       
-        const api = await fetch(`https://api.itsrose.life/image/unblur?url=${out}&json=true&apikey=${global.rose}`);
-        const image = await api.json();
-        conn.sendFile(m.chat, Buffer.from(image.result.base64Image, 'base64'), 'gambar.jpg', global.wm, m)
-      } else if (command === 'hd4' || command === 'remini4') {
-        const api = await fetch(`https://api.botcahx.eu.org/api/tools/remini-v3?url=${out}&resolusi=4&apikey=${global.btc}`);
-        const image = await api.json();
-        const url = image.url.url;
-        conn.sendFile(m.chat, url, null, wm, m);
-      }
-    } else {
-      m.reply(`Kirim gambar dengan caption *${usedPrefix + command}* atau reply gambar yang sudah dikirim.`);
-    }
-  } catch (e) {
-    console.error(e);
-    throw `🔧 Error Gunakan Type Lainnya seperti *hd/hd2/hd3/hd4*`
-  }
+async function processing(urlPath, method) {
+	return new Promise(async (resolve, reject) => {
+		let Methods = ["enhance", "dehaze"];
+		Methods.includes(method) ? (method = method) : (method = Methods[0]);
+		let buffer,
+			Form = new FormData(),
+			scheme = "https" + "://" + "inferenceengine" + ".vyro" + ".ai/" + method;
+		Form.append("model_version", 1, {
+			"Content-Transfer-Encoding": "binary",
+			contentType: "multipart/form-data; charset=uttf-8",
+		});
+		Form.append("image", Buffer.from(urlPath), {
+			filename: "enhance_image_body.jpg",
+			contentType: "image/jpeg",
+		});
+		Form.submit(
+			{
+				url: scheme,
+				host: "inferenceengine" + ".vyro" + ".ai",
+				path: "/" + method,
+				protocol: "https:",
+				headers: {
+					"User-Agent": "okhttp/4.9.3",
+					Connection: "Keep-Alive",
+					"Accept-Encoding": "gzip",
+				},
+			},
+			function (err, res) {
+				if (err) reject();
+				let data = [];
+				res
+					.on("data", function (chunk, resp) {
+						data.push(chunk);
+					})
+					.on("end", () => {
+						resolve(Buffer.concat(data));
+					});
+				res.on("error", (e) => {
+					reject();
+				});
+			}
+		);
+	});
 }
-
-handler.command = handler.help = ['hd', 'hd2', 'hd3', 'hd4', 'remini', 'remini2', 'remini3', 'remini4'];
-handler.tags = ['ai'];
-handler.premium = false;
+let handler = async (m, { conn, usedPrefix, command }) => {
+	switch (command) {
+		case "remini":
+			{
+				conn.enhancer = conn.enhancer ? conn.enhancer : {};
+				if (m.sender in conn.enhancer)
+					throw "Hallo tuan. saat ini masih ada proses yang belum selesai. harap tunggu!!!";
+				let q = m.quoted ? m.quoted : m;
+				let mime = (q.msg || q).mimetype || q.mediaType || "";
+				if (!mime)
+					throw `Reply image atau kirim gambar dengan caption: *${usedPrefix}${command}*`;
+				if (!/image\/(jpe?g|png)/.test(mime))
+					throw `Mime ${mime} tidak support`;
+				else conn.enhancer[m.sender] = true;
+				m.reply(wait);
+				let img = await q.download?.();
+				let error;
+				try {
+					const This = await processing(img, "enhance");
+					conn.sendFile(m.chat, This, "", wm, m);
+				} catch (er) {
+					error = true;
+				} finally {
+					if (error) {
+						m.reply("Proses Gagal :(");
+					}
+					delete conn.enhancer[m.sender];
+				}
+			}
+			break;
+		case "hdr":
+			{
+				conn.hdr = conn.hdr ? conn.hdr : {};
+				if (m.sender in conn.hdr)
+					throw "Hallo tuan. saat ini masih ada proses yang belum selesai. harap tunggu!!!";
+				let q = m.quoted ? m.quoted : m;
+				let mime = (q.msg || q).mimetype || q.mediaType || "";
+				if (!mime)
+					throw `Reply image atau kirim gambar dengan caption: *${usedPrefix}${command}*`;
+				if (!/image\/(jpe?g|png)/.test(mime))
+					throw `Mime ${mime} tidak support`;
+				else conn.hdr[m.sender] = true;
+				m.reply(wait);
+				let img = await q.download?.();
+				let error;
+				try {
+					const This = await processing(img, "enhance");
+					conn.sendFile(m.chat, This, "", wm, m);
+				} catch (er) {
+					error = true;
+				} finally {
+					if (error) {
+						m.reply(eror);
+					}
+					delete conn.hdr[m.sender];
+				}
+			}
+			break;
+	}
+};
+handler.help = handler.command = ["remini", "hdr"];
+handler.tags = ["ai"];
+handler.premium = false
 handler.limit = true;
-
-module.exports = handler;
+module.exports = handler
