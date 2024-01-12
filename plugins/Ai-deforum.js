@@ -43,9 +43,7 @@ STONEAGE
   };
 
   const { data } = await axios.post("https://api.itsrose.life/image/deforum", payload, {
-    params: {
-      apikey: `${global.rose}`,
-    },
+    headers: { Authorization: `${global.rose}` }
   }).catch((e) => e?.response);
 
   const { status, message, result } = data;
