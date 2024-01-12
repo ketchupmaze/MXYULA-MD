@@ -60,14 +60,18 @@ makima, angle, color_line, snow_fall, manga, charming, stipple, cg, idol, comic_
 	try {
   let media = await q.download();
 
-    const API_URL = `https://api.itsrose.life/image/differentMe?style=${args[0] ? args[0] : anime}&apikey=${global.rose}`;
+    const API_URL = `https://api.itsrose.life/image/differentMe?style=${args[0] ? args[0] : anime}`;
     const form = new FormData();
     form.append("file", Buffer.from(media), {
     filename: 'img.jpg',
     contentType: 'image/jpg'
 });
     const { data: responseData, status } = await axios.post(API_URL, form, {
-      headers: form.getHeaders(),
+      headers: {
+        Authorization: `${global.rose}`,
+        ...form.getHeaders(),
+        'accept': 'application/json',
+      },
       responseType: "arraybuffer"
     });
     if (status !== 200) {
