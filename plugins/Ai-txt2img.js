@@ -32,9 +32,7 @@ const handler = async (m, { conn, args, text, usedPrefix, command }) => {
   };
 
   const { data } = await axios.post("https://api.itsrose.life/image/diffusion/txt2img", payload, {
-    params: {
-      apikey: `${global.rose}`,
-    },
+    headers: { Authorization: `${global.rose}` }
   }).catch((e) => e?.response);
 
   const { status, message, result } = data;
