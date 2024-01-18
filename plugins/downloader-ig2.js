@@ -3,7 +3,7 @@ const fetch = require('node-fetch')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) throw `*Contoh:* ${usedPrefix}${command} https://www.instagram.com/p/ByxKbUSnubS/?utm_source=ig_web_copy_link`
     try {
-        const api = await fetch(`https://api.botcahx.live/api/dowloader/igdowloader?url=${args[0]}&apikey=${global.btc}`)
+        const api = await fetch(`https://api.botcahx.eu.org/api/dowloader/igdowloader?url=${args[0]}&apikey=${global.btc}`)
     conn.sendMessage(m.chat, {
 		react: {
 			text: '⏳',
