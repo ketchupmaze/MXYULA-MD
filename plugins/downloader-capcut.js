@@ -9,7 +9,7 @@ try {
       throw `URL Tidak Ditemukan!`
     }
     m.reply('*Mohon tunggu..*')
-    const api = await https.get(`https://api.botcahx.live/api/dowloader/capcut?url=${args[0]}&apikey=${global.btc}`, response => {
+    const api = await https.get(`https://api.botcahx.eu.org/api/dowloader/capcut?url=${args[0]}&apikey=${global.btc}`, response => {
       let data = '';
       response.on('data', chunk => {
         data += chunk;
