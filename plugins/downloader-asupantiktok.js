@@ -22,7 +22,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   const pickuser = username[Math.floor(Math.random() * username.length)];
   const query = args[0] ? args[0] : pickuser;
   try {
-    const res = await fetch(`https://api.botcahx.live/api/asupan/tiktok?query=${query}&apikey=${global.btc}`);
+    const res = await fetch(`https://api.botcahx.eu.org/api/asupan/tiktok?query=${query}&apikey=${global.btc}`);
     const api = await res.json();
     let capt = `*T I K T O K*\n\n`;
     capt += `  ◦ *Author* : ${api.result.data.author.nickname} (@${api.result.data.author.username})\n`;
