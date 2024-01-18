@@ -1,12 +1,25 @@
-let fetch = require('node-fetch')
+let axios = require('axios')
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-	if (!text) throw `ʜᴀʟʟᴏ ᴛᴜᴀɴ, ᴀᴅᴀ ʏᴀɴɢ ᴍᴀᴜ ᴛᴜᴀɴ ᴛᴀɴʏᴀᴋᴀɴ ᴋᴇᴘᴀᴅᴀ ᴀꜱꜱɪꜱᴛᴇɴ ᴍᴜ ɪɴɪ?
-`
-	try {
-		let anu = await (await fetch(`https://api.itsrose.life/chatGPT/completions?prompt=${text}&apikey=${global.rose}`)).json()
-		await conn.sendMessage(m.chat, {
-                text: anu.message,
+const payloads = {
+    prompt: ""
+};
+
+const handler = async (m, { conn, args, text, usedPrefix, command, isOwner }) => {
+  if (!text) throw `${usedPrefix}${command} hallo eula. apa kabar sayang?
+` 
+try {
+  const updatedPayloads = { ...payloads, prompt: text };
+  const { data } = await axios.request({
+    baseURL: "https://api.itsrose.life",
+    url: "/chatGPT/completions",
+    method: "POST",
+    headers: { Authorization: `${global.rose}` },
+    data: updatedPayloads,
+  }).catch((e) => e?.response);
+
+    const { status, message } = data;
+          await conn.sendMessage(m.chat, {
+                text: message,
                 contextInfo: {
                     externalAdReply: {
                         title: "ChatGPT",
@@ -18,12 +31,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                         renderLargerThumbnail: true
                     }
                 }
-            }, {quoted: m})
-	} catch (e) {
-		console.log(e)
-		throw `Fitur Error.`
-	}
-}
+          }, {quoted: m})
+      } catch(e) {
+      console.log(e)
+        m.reply('Server Down')
+    }
+};
 
 handler.help = ['openai'].map(v => v + ' question')
 handler.tags = ['ai']
